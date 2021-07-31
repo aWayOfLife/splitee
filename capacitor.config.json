@@ -1,0 +1,6 @@
+{
+  "appId": "com.syntax.splitee",
+  "appName": "Splitee",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
