@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Splitee</string>
+    <string name="title_activity_main">Splitee</string>
+    <string name="package_name">com.syntax.splitee</string>
+    <string name="custom_url_scheme">com.syntax.splitee</string>
+</resources>

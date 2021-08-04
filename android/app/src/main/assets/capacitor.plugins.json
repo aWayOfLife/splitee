@@ -1,0 +1,10 @@
+[
+	{
+		"pkg": "@capacitor-community/contacts",
+		"classpath": "ch.byrds.capacitor.contacts.Contacts"
+	},
+	{
+		"pkg": "@capacitor/geolocation",
+		"classpath": "com.capacitorjs.plugins.geolocation.GeolocationPlugin"
+	}
+]

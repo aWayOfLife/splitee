@@ -1,25 +1,32 @@
-import { Geolocation } from '@capacitor/geolocation';
-import React, {useState, useCallback} from 'react';
+import React, {useState} from 'react';
+import { Contacts } from "@capacitor-community/contacts";
 
 
 function App() {
-  const [loc, setLoc] = useState(null);
-  let coordinates = null;
-  const getCurrentPosition = useCallback(async () => {
-    coordinates = await Geolocation.getCurrentPosition();
-    setLoc(coordinates);
-  }, []);
-
+  const [contacts, setContacts] = useState(null);
+  const permissionCall = async () => {
+    console.log('here');
+    Contacts.getPermissions().then(result => {
+      console.log(result);
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+  const contactsCall = async () => {
+    console.log('here');
+    Contacts.getContacts().then(results => {
+      setContacts(results.contacts);
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+ 
   return (
     <div>
-      <h1>Geolocation</h1>
-      <p>Your location is:</p>
-      <p>Latitude: {loc?.coords.latitude}</p>
-      <p>Longitude: {loc?.coords.longitude}</p>
-
-      <button onClick={getCurrentPosition}>
-        Get Current Location
-      </button>
+      <button onClick={permissionCall}>Click me for permission</button>
+      <button onClick={contactsCall}>Click me contacts</button>
+      <h1>Contacts</h1>
+      {contacts?.map((contact)=><div key={contact.contactId}>{contact.displayName}</div>)}
     </div>
   );
 }
